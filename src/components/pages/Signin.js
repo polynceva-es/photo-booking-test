@@ -1,7 +1,16 @@
 import React from "react";
 import "../pages/Signin.css";
+import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+
+
+function sharePostInVk(url) {
+  return `https://vk.com/share.php?url=${url}?title='Title'`
+}
 
 function Signin() {
+  const location = useLocation();
+  const baseUrl='http://localhost:3000';
   return (
     <div className="flex">
       <h1>Регистрация</h1>
@@ -22,6 +31,7 @@ function Signin() {
           Register
         </button>
       </form>
+
       <button
         onClick={(evt) => {
           evt.preventDefault();
@@ -30,6 +40,7 @@ function Signin() {
       >
         Register with Google
       </button>
+
       <button
         onClick={(evt) => {
           evt.preventDefault();
@@ -38,14 +49,13 @@ function Signin() {
       >
         Register with Vk
       </button>
-      <button
-        onClick={(evt) => {
-          evt.preventDefault();
-          console.log("click vk send post");
-        }}
+
+      <Link
+        to={sharePostInVk(`${baseUrl}${location.pathname}`)}
+        target="_blank"
       >
-        Vk send post
-      </button>
+        Share post in VK
+      </Link>
     </div>
   );
 }
