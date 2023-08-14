@@ -8,6 +8,10 @@ function sharePostInVk(url) {
   return `https://vk.com/share.php?url=${url}?title='Title'`
 }
 
+function shareInTelegram(url) {
+  return `https://telegram.me/share/url?url=${url}&text=ТЕКСТ`
+}
+
 function Signin() {
   const location = useLocation();
   const baseUrl='http://localhost:3000';
@@ -55,6 +59,12 @@ function Signin() {
         target="_blank"
       >
         Share post in VK
+      </Link>
+
+      <Link
+        to={shareInTelegram(`${baseUrl}${location.pathname}`)}
+        target="_blank">
+      Share in Telegram
       </Link>
     </div>
   );
