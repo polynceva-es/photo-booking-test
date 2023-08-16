@@ -2,9 +2,11 @@ import React from "react";
 import "../pages/Signin.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import google_logo from "../../images/icons8-google.svg";
-import vk_logo from "../../images/icons8-vk.svg";
-import telegram_logo from "../../images/icons8-telegram-app.svg";
+import LinkSignIn from "../Link_signin";
+import google_logo from "../../images/logo googleg 48dp.svg";
+import vk_logo from "../../images/VK.svg";
+import vk_logo_share from "../../images/icomoon-free_vk.svg";
+import telegram_logo from "../../images/logos_telegram.svg";
 
 function sharePostInVk(url) {
   return `https://vk.com/share.php?url=${url}?title='Title'`;
@@ -46,26 +48,25 @@ function Signin() {
         </button>
       </form>
       <h1>Войти с помощью...</h1>
-      <Link
-        to={`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile&include_granted_scopes=true&response_type=token&state=state_parameter_passthrough_value&redirect_uri=${redirect_uri}&client_id=${client_id_google}`}
-      >
-        <p>Sign in Google</p>
-        <img src={google_logo} alt="google sign-in" />
-      </Link>
 
-      <Link
-        to={`https://oauth.vk.com/authorize?client_id=${client_id_vk}&display=page&redirect_uri=http://localhost:3000/sign-in&scope=email&response_type=code&v=5.131`}
-      >
-        <p>Sign in Vk</p>
-        <img src={vk_logo} alt="google sign-in" />
-      </Link>
+      <LinkSignIn
+        url={`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile&include_granted_scopes=true&response_type=token&state=state_parameter_passthrough_value&redirect_uri=${redirect_uri}&client_id=${client_id_google}`}
+        logo={google_logo}
+        title="Войти через Google"
+      />
+
+      <LinkSignIn
+        url={`https://oauth.vk.com/authorize?client_id=${client_id_vk}&display=page&redirect_uri=http://localhost:3000/sign-in&scope=email&response_type=code&v=5.131`}
+        logo={vk_logo}
+        title="Войти через VK"
+      />
 
       <Link
         to={sharePostInVk(`${baseUrl}${location.pathname}`)}
         target="_blank"
       >
         Share post in VK
-        <img src={vk_logo} alt="google sign-in" />
+        <img src={vk_logo_share} alt="google sign-in" />
       </Link>
 
       <Link

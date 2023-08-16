@@ -1,0 +1,33 @@
+.link-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 40px;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.link-signin:hover {
+  opacity: 0.8;
+}
+
+.link-signin__logo {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.link-signin__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: center;
+}
