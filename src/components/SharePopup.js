@@ -2,7 +2,7 @@ import React from "react";
 import "../components/SharePopup.css";
 
 function SharePopup (props) {
-  const {links} = props;
+  const {url, links} = props;
   return (
     <div className="sharePopup">
       <div>
@@ -15,7 +15,7 @@ function SharePopup (props) {
       </div>
       <h2>Или скопируйте ссылку</h2>
       <div>
-        <p>LinkLinkLink</p>
+        <p>{url}</p>
         <button>Скопировать</button>
       </div>
     </div>

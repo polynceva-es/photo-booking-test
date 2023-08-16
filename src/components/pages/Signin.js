@@ -63,6 +63,7 @@ function Signin() {
       />
 
       <SharePopup
+        url={`${baseUrl}${location.pathname}`}
         links={
           <>
             <Link
