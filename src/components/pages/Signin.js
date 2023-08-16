@@ -7,6 +7,7 @@ import google_logo from "../../images/logo googleg 48dp.svg";
 import vk_logo from "../../images/VK.svg";
 import vk_logo_share from "../../images/icomoon-free_vk.svg";
 import telegram_logo from "../../images/logos_telegram.svg";
+import SharePopup from "../SharePopup";
 
 function sharePostInVk(url) {
   return `https://vk.com/share.php?url=${url}?title='Title'`;
@@ -61,21 +62,25 @@ function Signin() {
         title="Войти через VK"
       />
 
-      <Link
-        to={sharePostInVk(`${baseUrl}${location.pathname}`)}
-        target="_blank"
-      >
-        Share post in VK
-        <img src={vk_logo_share} alt="google sign-in" />
-      </Link>
+      <SharePopup
+        links={
+          <>
+            <Link
+              to={sharePostInVk(`${baseUrl}${location.pathname}`)}
+              target="_blank"
+            >
+              <img src={vk_logo_share} alt="google sign-in" />
+            </Link>
 
-      <Link
-        to={shareInTelegram(`${baseUrl}${location.pathname}`)}
-        target="_blank"
-      >
-        Share in Telegram
-        <img src={telegram_logo} alt="google sign-in" />
-      </Link>
+            <Link
+              to={shareInTelegram(`${baseUrl}${location.pathname}`)}
+              target="_blank"
+            >
+              <img src={telegram_logo} alt="google sign-in" />
+            </Link>
+          </>
+        }
+      />
     </div>
   );
 }
