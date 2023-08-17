@@ -5,7 +5,7 @@ function SharePopup (props) {
   const {url, links} = props;
   return (
     <div className="sharePopup">
-      <div>
+      <div className="sharePopup__title">
         <h1>Поделиться</h1>
         <button>X</button>
       </div>
@@ -14,7 +14,7 @@ function SharePopup (props) {
         {links}
       </div>
       <h2>Или скопируйте ссылку</h2>
-      <div>
+      <div className="sharePopup__copy">
         <p>{url}</p>
         <button>Скопировать</button>
       </div>
