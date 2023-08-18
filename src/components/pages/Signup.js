@@ -2,8 +2,11 @@ import React from "react";
 import "../pages/Signup.css";
 import AuthIntegration from "../AuthIntegration";
 import FormAuth from "../FormAuth";
+import useValidation from "../../hooks/useValidation";
 
 function Signup() {
+  const { values, errors, onChange, resetValidation, isFormValid } =
+  useValidation();
   const title = `Присоединиться как ${true ? "заказчик" : "специалист"}`;
   return (
     <div className="flex">
