@@ -50,7 +50,8 @@ function Signin() {
       /> */}
       <h1>Войти в аккаунт</h1>
       <AuthIntegration/>
-      <FormAuth child={<></>} />
+      <FormAuth child={<></>} buttonTitle={'Войти'}/>
+      {/* передать пропсы */}
     </div>
   );
 }

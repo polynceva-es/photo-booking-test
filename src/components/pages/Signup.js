@@ -1,26 +1,52 @@
 import React from "react";
+import "../pages/Signup.css";
 import AuthIntegration from "../AuthIntegration";
 import FormAuth from "../FormAuth";
 
 function Signup() {
-  const title = `Присоединиться как ${false ? "заказчик" : "специалист"}`;
+  const title = `Присоединиться как ${true ? "заказчик" : "специалист"}`;
   return (
-    <>
+    <div className="flex">
       <h1>{title}</h1>
       <AuthIntegration/>
       <FormAuth
         child={
           <>
-            <label>
-              Имя<input></input>
+            <label htmlFor="reg-name" className="">
+              Имя
+              <input
+                className=""
+                id="reg-name"
+                name="name"
+                type="text"
+                onChange={onChange}
+                value={values.name || ""}
+                minLength="2"
+                maxLength="30"
+                required
+              />
+              <span className="">{errors.name || ""}</span>
             </label>
-            <label>
-              Фамилия<input></input>
+            <label htmlFor="reg-surname" className="">
+              Фамилия
+              <input
+                className=""
+                id="reg-surname"
+                name="surname"
+                type="text"
+                onChange={onChange}
+                value={values.surname || ""}
+                minLength="2"
+                maxLength="30"
+                required
+              />
+              <span className="">{errors.surname || ""}</span>
             </label>
           </>
         }
+        buttonTitle={'Присоединиться'}
       />
-    </>
+    </div>
   );
 }
 

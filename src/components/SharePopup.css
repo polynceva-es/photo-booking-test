@@ -1,31 +1,109 @@
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+/* Добавить шрифты */
+
 .sharePopup {
-  width: 440px;
-  height: 380px;
-  border: 1px solid #E6E6E6;
-  border-radius: 8px;
-  padding: 32px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; */
+    width: 440px;
+    height: 380px;
+    border: 1px solid #E6E6E6;
+    border-radius: 8px;
+    padding: 32px;
+    position: relative;
+    box-sizing: border-box;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; */
 }
 
 .sharePopup__title {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid #E6E6E6;
+    border-bottom: 2px solid #E6E6E6;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -1.5px;
+}
+
+.sharePopup__subtitle {
+    margin: 9px 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: -0.3px;
+}
+
+.sharePopup__logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sharePopup__logo-link {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.sharePopup__logo-image {
+    width: 72px;
+    height: 72px;
+    margin: 0 24px;
 }
 
 .sharePopup__copy {
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid #E6E6E6;
-  border-radius: 8px;
-  padding: 12px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #E6E6E6;
+    border-radius: 8px;
+    padding: 12px 8px;
 }
- h1, h2, p {
-  margin: 0;
- }
- button {
-  padding: 0;
- }
+
+.sharePopup__link {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.sharePopup__button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.sharePopup__button:hover {
+    opacity: 0.8;
+}
+
+.sharePopup__button_close {
+    width: 32px;
+    height: 32px;
+    background: none;
+    position: absolute;
+    top: 32px;
+    right: 24px;
+}
+
+.sharePopup__button_copy {
+    display: flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #0F77FF;
+    color: white;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 160% */
+    letter-spacing: -0.2px;
+}
