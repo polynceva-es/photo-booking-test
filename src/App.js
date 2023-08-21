@@ -16,11 +16,10 @@ function App() {
           <Route path="/" element={<Homepage/>}/>
           <Route path="/sign-in" element={<Signin/>}/>
           <Route path="/sign-up" element={<Signup/>}/>
+          <Route path="/chat-room" element={<ChatRoom/>}/>
+          <Route path="/chat" element={<Chat/>}/>
         </Routes>
       </>
-
-
-
   );
 }
 
