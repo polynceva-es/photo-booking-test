@@ -1,0 +1,12 @@
+.clientAccount-container {
+    width: fit-content;
+    margin: 20px auto;
+}
+.clientAccount-container button {
+  margin: 20px auto;
+  display: block;
+}
+.clientAccount-container h1 {
+  text-align: center;
+}
+

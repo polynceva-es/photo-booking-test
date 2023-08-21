@@ -1,0 +1,11 @@
+.profile-container  {
+    width: fit-content;
+    margin: 20px auto 0;
+}
+.profile-container h1 {
+    text-align: center;
+}
+.profile-container button {
+    display: block;
+    margin: 20px auto;
+}

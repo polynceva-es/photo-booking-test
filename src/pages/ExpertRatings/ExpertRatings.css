@@ -1,0 +1,12 @@
+.expertRatings-container {
+    width: fit-content;
+    margin: 20px auto;
+}
+.expertRatings-container button {
+  margin: 20px auto;
+  display: block;
+}
+.expertRatings-container h1 {
+  text-align: center;
+}
+

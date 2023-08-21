@@ -1,0 +1,12 @@
+.expertChat-container {
+    width: fit-content;
+    margin: 20px auto;
+}
+.expertChat-container button {
+  margin: 20px auto;
+  display: block;
+}
+.expertChat-container h1 {
+  text-align: center;
+}
+

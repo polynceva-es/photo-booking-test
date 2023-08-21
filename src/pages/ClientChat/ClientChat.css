@@ -1,0 +1,12 @@
+.clientChat-container {
+    width: fit-content;
+    margin: 20px auto;
+}
+.clientChat-container button {
+  margin: 20px auto;
+  display: block;
+}
+.clientChat-container h1 {
+  text-align: center;
+}
+

@@ -1,0 +1,12 @@
+.expertAccount-container {
+    width: fit-content;
+    margin: 20px auto;
+}
+.expertAccount-container button {
+  margin: 20px auto;
+  display: block;
+}
+.expertAccount-container h1 {
+  text-align: center;
+}
+
