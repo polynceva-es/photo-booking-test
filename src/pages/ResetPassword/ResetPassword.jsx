@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import './ResetPassword.css';
 import useValidation from '../../hooks/useValidation';
 import { FormAuth } from '../../components/FormAuth/FormAuth';
@@ -7,6 +8,7 @@ import ok_image from '../../images/Ok.svg';
 
 export const ResetPassword = props => {
   const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
   const { onChange, values, errors, resetValidation, isFormValid } = useValidation();
   const { isEmailSend, isPasswordReset, onSubmitResetPassword, onSubmitSendEmailToResetPassword } = props;
 
@@ -34,7 +36,7 @@ export const ResetPassword = props => {
             <>
               <label
                 htmlFor="sendEmail"
-                className=""
+                className="form-auth__label"
               >
                 Email
                 <input
@@ -46,7 +48,7 @@ export const ResetPassword = props => {
                   value={values.sendEmail || ''}
                   required
                 />
-                <span className="">{errors.sendEmail || ''}</span>
+                <span className="form-auth__err"></span>
               </label>
             </>
           }
@@ -80,7 +82,7 @@ export const ResetPassword = props => {
             <>
               <label
                 htmlFor="resetPassword"
-                className=""
+                className="form-auth__label"
               >
                 Новый пароль
                 <input
@@ -92,7 +94,7 @@ export const ResetPassword = props => {
                   value={values.resetPassword || ''}
                   required
                 />
-                <span className="">{errors.resetPassword || ''}</span>
+                <span className="form-auth__err"></span>
               </label>
             </>
           }

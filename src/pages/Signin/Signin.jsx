@@ -1,26 +1,31 @@
 import React, {useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import './Signin.css';
 import { AuthIntegration } from '../../components/AuthIntegration/AuthIntegration';
 import { FormAuth } from '../../components/FormAuth/FormAuth';
-import useValidation from '../../hooks/useValidation';
 
 export const Signin = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { onSubmit, signinGoogle, signinVk } = props;
-  const { values, errors, onChange, resetValidation, isFormValid } =
-  useValidation();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm({mode: 'onChange'});
+
 
   useEffect(()=> {
-    resetValidation({email: '', password: ''});
     // signinGoogle(new URLSearchParams(location.hash).get("access_token"));
     // signinVk(new URLSearchParams(location.search).get("code"));
   },[])
 
-  const handleSubmitSignin = (evt) => {
-    evt.preventDefault();
-    onSubmit(values);
+  const handleSubmitSignin = (data) => {
+    onSubmit(data);
+    reset();
   }
 
   return (
@@ -31,41 +36,45 @@ export const Signin = (props) => {
         child={<>
         <label
           htmlFor="reg-email"
-          className=""
+          className="form-auth__label"
         >
           Email
           <input
             className=""
-            id="reg-email"
-            name="email"
             type="email"
-            onChange={onChange}
-            value={values.email || ''}
+            {...register("email", {
+              required: "Email is require field!",
+              pattern: {
+                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                message: 'Please enter valid email'
+              }
+            })}
           />
-          <span className="">{errors.email || ''}</span>
+           <span className="form-auth__err">{errors?.email && errors.email.message}</span>
         </label>
         <label
           htmlFor="reg-pass"
-          className=""
+          className="form-auth__label"
         >
           Пароль
           <input
             className=""
-            id="reg-pass"
-            name="password"
             type="password"
-            onChange={onChange}
-            value={values.password || ''}
-            required
+            {...register("password", {
+              required: "Password is require field!",
+              // pattern: {
+              //   value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/g,
+              //   message: 'Please enter valid password'
+              // }
+            })}
           />
-          <span className="">{errors.password || ''}</span>
+         <span className="form-auth__err">{errors?.password && errors.password.message}</span>
         </label>
         </>}
         buttonTitle={'Войти'}
-        onSubmit={handleSubmitSignin}
-        isFormValid={isFormValid}
+        onSubmit={handleSubmit(handleSubmitSignin)}
+        isFormValid={isValid}
       />
-      {/* передать пропсы */}
       <button onClick={() => navigate('/reset-password')}>Забыли пароль?</button>
       <button onClick={() => navigate('/sign-up')}>Регистрация</button>
     </div>

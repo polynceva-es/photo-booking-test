@@ -26,3 +26,14 @@
   background: none;
   color: #0F77FF;
 }
+
+.form-auth__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-auth__err {
+  height: 30px;
+  width: 359px;
+  border: 1px solid red;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 import './Signup.css';
 import { AuthIntegration } from '../../components/AuthIntegration/AuthIntegration';
@@ -6,7 +7,11 @@ import { FormAuth } from '../../components/FormAuth/FormAuth';
 import useValidation from '../../hooks/useValidation';
 
 export const Signup = props => {
-  const { onSubmit, onSubmitJoin, isClient } = props;
+  const {
+    onSubmit,
+    onSubmitJoin,
+    isClient
+  } = props;
   const { values, errors, onChange, resetValidation, isFormValid } = useValidation();
   const title = `Присоединиться как ${isClient ? 'заказчик' : 'специалист'}`;
 
@@ -34,7 +39,7 @@ export const Signup = props => {
             <>
               <label
                 htmlFor="reg-name"
-                className=""
+                className="form-auth__label"
               >
                 Имя
                 <input
@@ -48,11 +53,11 @@ export const Signup = props => {
                   maxLength="30"
                   required
                 />
-                <span className="">{errors.name || ''}</span>
+                <span className="form-auth__err">{errors.name || ''}</span>
               </label>
               <label
                 htmlFor="reg-surname"
-                className=""
+                className="form-auth__label"
               >
                 Фамилия
                 <input
@@ -66,11 +71,11 @@ export const Signup = props => {
                   maxLength="30"
                   required
                 />
-                <span className="">{errors.surname || ''}</span>
+                <span className="form-auth__err">{errors.surname || ''}</span>
               </label>
               <label
                 htmlFor="reg-email"
-                className=""
+                className="form-auth__label"
               >
                 Email
                 <input
@@ -81,11 +86,11 @@ export const Signup = props => {
                   onChange={onChange}
                   value={values.email || ''}
                 />
-                <span className="">{errors.email || ''}</span>
+                <span className="form-auth__err">{errors.email || ''}</span>
               </label>
               <label
                 htmlFor="reg-pass"
-                className=""
+                className="form-auth__label"
               >
                 Пароль
                 <input
@@ -97,7 +102,7 @@ export const Signup = props => {
                   value={values.password || ''}
                   required
                 />
-                <span className="">{errors.password || ''}</span>
+                <span className="form-auth__err">{errors.password || ''}</span>
               </label>
             </>
           }
