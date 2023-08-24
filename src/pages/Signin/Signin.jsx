@@ -24,10 +24,13 @@ export const Signin = (props) => {
   },[])
 
   const handleSubmitSignin = (data) => {
-    onSubmit(data);
+    // onSubmit(data);
+    console.log(data);
+
     reset();
   }
 
+  console.log(errors);
   return (
     <div className="signin">
       <h1>Войти в аккаунт</h1>
@@ -73,7 +76,8 @@ export const Signin = (props) => {
         </>}
         buttonTitle={'Войти'}
         onSubmit={handleSubmit(handleSubmitSignin)}
-        isFormValid={isValid}
+        // isFormValid={isValid}
+        err={errors}
       />
       <button onClick={() => navigate('/reset-password')}>Забыли пароль?</button>
       <button onClick={() => navigate('/sign-up')}>Регистрация</button>
