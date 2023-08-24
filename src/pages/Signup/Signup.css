@@ -1,0 +1,59 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup__fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.signup__title {
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -1.5px;
+    max-width: 437px;
+}
+
+.signup__input-container {
+    display: flex;
+    width: 307px;
+    padding: 20px 32px;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 8px;
+    background: #CCE2FF;
+    box-sizing: border-box;
+}
+
+.signup__input-radio {
+    appearance: none;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #0F77FF;
+    background: none
+}
+
+.signup__input-radio:checked {
+    border: 4px solid #0F77FF;
+}
+
+.signup__input-label {
+    color: #0F77FF;
+    font-family: Open Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    margin: 0 20px;
+}

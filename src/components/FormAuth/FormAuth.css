@@ -1,6 +1,28 @@
 .form-auth {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-auth__button_submit,
+.form-auth__button_signin {
+  cursor: pointer;
+  border: none;
+}
+
+.form-auth__button_submit {
+  background-color: #0F77FF;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  width: 359px;
+  padding: 12px 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-auth__button_signin {
+  background: none;
+  color: #0F77FF;
+}

@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { register, login, loginGoogle, loginVk, resetPassword, checkToken } from '../../utils/auth';
+import {
+  register,
+  login,
+  loginGoogle,
+  loginVk,
+  resetPassword,
+  sendEmailToResetPassword,
+  checkToken
+} from '../../utils/auth';
 
 import { Signin } from '../../pages/Signin/Signin';
 import { Signup } from '../../pages/Signup/Signup';
@@ -20,22 +28,31 @@ import { ExecutorChat } from '../../pages/ExpertChat/ExpertChat';
 import { Page404 } from '../../pages/404/404';
 
 export function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const [regedIn, setRegedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [regedIn, setRegedIn] = useState(false);
 
-  // const [isClient, setIsClient] = React.useState("true");
-  // const [isExpert, setIsExpert] = React.useState("false");
+  const [isClient, setIsClient] = useState(undefined);
+  const [isEmailSend, setIsEmailSend] = useState(false);
+  const [isPasswordReset, setIsPasswordReset] = useState(false);
 
-  const [isLoader, setIsLoader] = React.useState(false);
+  const [isLoader, setIsLoader] = useState(false);
 
-  const onSubmitSignup = values => {
-    register(values)
+  const onSubmitSignup = (values, status) => {
+    register(values, status)
       .then(res => {
         console.log(res);
       })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  const onSubmitJoin = values => {
+    if (values.type === 'client') {
+      setIsClient(true);
+    } else {
+      setIsClient(false);
+    }
   };
 
   const onSubmitSignin = values => {
@@ -48,10 +65,22 @@ export function App() {
       });
   };
 
+  const onSubmitSendEmailToResetPassword = values => {
+    sendEmailToResetPassword(values)
+      .then(res => {
+        console.log(res);
+        setIsEmailSend(true);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const onSubmitResetPassword = values => {
     resetPassword(values)
       .then(res => {
         console.log(res);
+        setIsPasswordReset(true);
       })
       .catch(err => {
         console.log(err);
@@ -97,7 +126,7 @@ export function App() {
   //       .finally(() => setIsLoader(false));
   //   }
   // }
-  // React.useEffect(() => {
+  // useEffect(() => {
   //   tokenCheck();
   //   if (loggedIn) {
   //     setIsLoader(true);
@@ -121,7 +150,14 @@ export function App() {
       />
       <Route
         path="/sign-up"
-        element={<Signup onSubmit={onSubmitSignup} />}
+        element={
+          <Signup
+            onSubmit={onSubmitSignup}
+            onSubmitJoin={onSubmitJoin}
+            isClient={isClient}
+            setIsClient={setIsClient}
+          />
+        }
       />
       <Route
         path="/sign-in"
@@ -135,7 +171,14 @@ export function App() {
       />
       <Route
         path="/reset-password"
-        element={<ResetPassword onSubmit={onSubmitResetPassword} />}
+        element={
+          <ResetPassword
+            isEmailSend={isEmailSend}
+            isPasswordReset={isPasswordReset}
+            onSubmitResetPassword={onSubmitResetPassword}
+            onSubmitSendEmailToResetPassword={onSubmitSendEmailToResetPassword}
+          />
+        }
       />
       <Route
         path="/catalog"

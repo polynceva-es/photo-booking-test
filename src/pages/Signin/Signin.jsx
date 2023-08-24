@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Signin.css';
 import { AuthIntegration } from '../../components/AuthIntegration/AuthIntegration';
@@ -12,7 +12,7 @@ export const Signin = (props) => {
   const { values, errors, onChange, resetValidation, isFormValid } =
   useValidation();
 
-  React.useEffect(()=> {
+  useEffect(()=> {
     resetValidation({email: '', password: ''});
     // signinGoogle(new URLSearchParams(location.hash).get("access_token"));
     // signinVk(new URLSearchParams(location.search).get("code"));
@@ -24,7 +24,7 @@ export const Signin = (props) => {
   }
 
   return (
-    <div className={'loginPage-container'}>
+    <div className="signin">
       <h1>Войти в аккаунт</h1>
       <AuthIntegration />
       <FormAuth
