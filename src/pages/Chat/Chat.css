@@ -1,0 +1,8 @@
+.chat-container,
+.chat-form,
+.chat-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}

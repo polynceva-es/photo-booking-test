@@ -15,8 +15,8 @@ import { Signin } from '../../pages/Signin/Signin';
 import { Signup } from '../../pages/Signup/Signup';
 import { ResetPassword } from '../../pages/ResetPassword/ResetPassword';
 import { Landing } from '../../pages/Landing/Landing';
-import { ClientChat } from '../../pages/ClientChat/ClientChat';
-import { ExecutorChat } from '../../pages/ExpertChat/ExpertChat';
+import { ChatRoom } from '../../pages/ChatRoom/ChatRoom';
+import { Chat } from '../../pages/Chat/Chat';
 import { Page404 } from '../../pages/404/404';
 
 export function App() {
@@ -173,12 +173,12 @@ export function App() {
         }
       />
       <Route
-        path="/client/:id/chat"
-        element={<ClientChat />}
+        path="/chat/:id/chat-room"
+        element={<ChatRoom />}
       />
       <Route
-        path="/expert/:id/chat"
-        element={<ExecutorChat />}
+        path="/chat/"
+        element={<Chat />}
       />
       <Route
         path="*"

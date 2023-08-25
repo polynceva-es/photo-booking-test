@@ -1,0 +1,12 @@
+.chat-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.chat-room_demo {
+  border: 1px solid blue;
+  background-color: beige;
+}
+

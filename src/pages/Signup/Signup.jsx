@@ -131,6 +131,7 @@ export const Signup = props => {
                 value="client"
                 onChange={onChange}
                 className="signup__input-radio"
+                required
               />
               <label
                 htmlFor="client"
