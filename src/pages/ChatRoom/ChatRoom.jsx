@@ -1,8 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useWebSocket, {
-  ReadyState,
-} from "react-use-websocket/dist/lib/use-websocket";
 
 import "./ChatRoom.css";
 
@@ -14,22 +11,22 @@ wsChanel.onopen = () => {
   console.log("onConnect");
 }
 
-
-
 export const ChatRoom = () => {
   const navigate = useNavigate();
   // const { state } = useLocation();
   // const { name, id } = state;
   const name = "Name";
-
   const [messages, setMessages] = useState([]);
+
+  const onMessage = (evt) => {
+    // let newMessages = JSON.parse(evt.data);
+    let newMessage = {author: evt.data, text: evt.data};
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  }
+
   useEffect(() => {
     console.log("hey");
-    wsChanel.addEventListener("message", (evt) => {
-      // let newMessages = JSON.parse(evt.data);
-      let newMessage = {author: evt.data, text: evt.data};
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
-    });
+    wsChanel.addEventListener("message", onMessage);
     console.log("end");
   }, []);
 
