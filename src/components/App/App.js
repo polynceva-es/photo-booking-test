@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import {
   register,
@@ -8,16 +8,17 @@ import {
   loginVk,
   resetPassword,
   sendEmailToResetPassword,
-  checkToken
-} from '../../utils/auth';
+  checkToken,
+} from "../../utils/auth";
 
-import { Signin } from '../../pages/Signin/Signin';
-import { Signup } from '../../pages/Signup/Signup';
-import { ResetPassword } from '../../pages/ResetPassword/ResetPassword';
-import { Landing } from '../../pages/Landing/Landing';
-import { ChatRoom } from '../../pages/ChatRoom/ChatRoom';
-import { Chat } from '../../pages/Chat/Chat';
-import { Page404 } from '../../pages/404/404';
+import { Signin } from "../../pages/Signin/Signin";
+import { Signup } from "../../pages/Signup/Signup";
+import { ResetPassword } from "../../pages/ResetPassword/ResetPassword";
+import { Landing } from "../../pages/Landing/Landing";
+import { ChatRoom } from "../../pages/ChatRoom/ChatRoom";
+import { Chat } from "../../pages/Chat/Chat";
+import {AboutMe} from "../../pages/AboutMe/AboutMe";
+import { Page404 } from "../../pages/404/404";
 
 export function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -31,70 +32,70 @@ export function App() {
 
   const onSubmitSignup = (values, status) => {
     register(values, status)
-      .then(res => {
+      .then((res) => {
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const onSubmitJoin = values => {
-    if (values.type === 'client') {
+  const onSubmitJoin = (values) => {
+    if (values.type === "client") {
       setIsClient(true);
     } else {
       setIsClient(false);
     }
   };
 
-  const onSubmitSignin = values => {
+  const onSubmitSignin = (values) => {
     login(values)
-      .then(res => {
+      .then((res) => {
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const onSubmitSendEmailToResetPassword = values => {
+  const onSubmitSendEmailToResetPassword = (values) => {
     sendEmailToResetPassword(values)
-      .then(res => {
+      .then((res) => {
         console.log(res);
         setIsEmailSend(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const onSubmitResetPassword = values => {
+  const onSubmitResetPassword = (values) => {
     resetPassword(values)
-      .then(res => {
+      .then((res) => {
         console.log(res);
         setIsPasswordReset(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const signinGoogle = param => {
+  const signinGoogle = (param) => {
     loginGoogle(param)
-      .then(res => {
+      .then((res) => {
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const signinVk = param => {
+  const signinVk = (param) => {
     loginVk(param)
-      .then(res => {
+      .then((res) => {
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -136,10 +137,7 @@ export function App() {
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Landing />}
-      />
+      <Route path="/" element={<Landing />} />
       <Route
         path="/sign-up"
         element={
@@ -172,18 +170,11 @@ export function App() {
           />
         }
       />
-      <Route
-        path="/chat/:id/chat-room"
-        element={<ChatRoom />}
-      />
-      <Route
-        path="/chat/"
-        element={<Chat />}
-      />
-      <Route
-        path="*"
-        element={<Page404 />}
-      />
+      <Route path="/chat/:id/chat-room" element={<ChatRoom />} />
+      <Route path="/chat/" element={<Chat />} />
+
+      <Route path="/profile" element={<AboutMe />} />
+      <Route path="*" element={<Page404 />} />
     </Routes>
   );
 }

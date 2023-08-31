@@ -1,0 +1,18 @@
+.about-me__button {
+height: 40px;
+width: 152px;
+border: 1px solid red;
+background: none;
+background-image: url('../../images/Property\ 1=Default.svg');
+background-repeat: no-repeat;
+background-position: center;
+cursor: pointer;
+}
+
+.about-me__button:hover {
+  background-image: url('../../images/Property\ 1=hovered.svg');
+}
+
+.about-me__button:active {
+  background-image: url('../../images/Property\ 1=pressed.svg');
+}

@@ -9,9 +9,9 @@ export const Landing = () => {
       <h1>Лэндинг</h1>
       <button onClick={() => navigate("/sign-in")}>Войти</button>
       {/* _____________________________________________________________ */}
-      <button onClick={() => navigate(`/chat/`)}>
-        Перейти в чат
-      </button>
+      <button onClick={() => navigate(`/chat/`)}>Перейти в чат</button>
+      {/* _____________________________________________________________ */}
+      <button onClick={() => navigate(`/profile`)}>Перейти в profile</button>
     </div>
   );
 };
