@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./AboutMe.css";
+import photo from '../../images/Rectangle 11.jpg'
 
 export const AboutMe = () => {
   const navigate = useNavigate();
@@ -34,18 +35,12 @@ export const AboutMe = () => {
             <h2 className="about-me__subtitle">Обо мне</h2>
             <p className="about-me__text">
               Меня зовут Алена и я профессионально снимаю фото и видео🤍 Буду
-              рада познакомиться лично!               Canon EOS 90D Body, объектив Canon EF 50mm f/1.8 STM, фотовспышка
-              Canon Speedlite 430EX III-RT, свет Raylab Axio III 400 Basic Kit               Canon EOS 90D Body, объектив Canon EF 50mm f/1.8 STM, фотовспышка
-              Canon Speedlite 430EX III-RT, свет Raylab Axio III 400 Basic Kit
+              рада познакомиться лично!
             </p>
           </div>
           <div className="about-me__info">
             <h2 className="about-me__subtitle">Оборудование</h2>
             <p className="about-me__text">
-              Canon EOS 90D Body, объектив Canon EF 50mm f/1.8 STM, фотовспышка
-              Canon Speedlite 430EX III-RT, свет Raylab Axio III 400 Basic Kit
-              Canon EOS 90D Body, объектив Canon EF 50mm f/1.8 STM, фотовспышка
-              Canon Speedlite 430EX III-RT, свет Raylab Axio III 400 Basic Kit
               Canon EOS 90D Body, объектив Canon EF 50mm f/1.8 STM, фотовспышка
               Canon Speedlite 430EX III-RT, свет Raylab Axio III 400 Basic Kit
             </p>
@@ -56,13 +51,15 @@ export const AboutMe = () => {
             about-me__container_row
             about-me__container_aling_start"
           >
-            <button className="about-me__button-contact">Написать</button>
-            <button className="about-me__button-contact">Показать контакты</button>
-            <button className="about-me__button-contact"></button>
+            <button className="about-me__button-contact about-me__button-contact_big about-me__button-contact_color">Написать</button>
+            <button className="about-me__button-contact about-me__button-contact_big">
+              Показать контакты
+            </button>
+            <button className="about-me__button-contact about-me__button-contact_small"></button>
           </div>
         </div>
         <figure className="about-me__avatar">
-          <img src="" className="about-me__avatar-image" alt="" />
+          <img src={photo} className="about-me__avatar-image" alt="" />
         </figure>
       </div>
     </article>
