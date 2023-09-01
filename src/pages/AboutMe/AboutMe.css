@@ -1,12 +1,25 @@
+p {
+  margin: 0;
+}
+
+.about-me {
+  max-width: 1352px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 56px 0;
+  margin: 0 auto;
+}
+
 .about-me__button {
-height: 40px;
-width: 152px;
-border: 1px solid red;
-background: none;
-background-image: url('../../images/Property\ 1=Default.svg');
-background-repeat: no-repeat;
-background-position: center;
-cursor: pointer;
+  height: 40px;
+  width: 152px;
+  border: none;
+  background: none;
+  background-image: url('../../images/Property\ 1=Default.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
 }
 
 .about-me__button:hover {
@@ -15,4 +28,93 @@ cursor: pointer;
 
 .about-me__button:active {
   background-image: url('../../images/Property\ 1=pressed.svg');
+}
+
+.about-me__container {
+  display: flex;
+}
+
+.about-me__container_row {
+  flex-direction: row;
+}
+
+.about-me__container_column {
+  flex-direction: column;
+}
+
+.about-me__container_small {
+  width: 857px;
+}
+
+.about-me__container_aling_spbet {
+  justify-content: space-between;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 48px;
+}
+
+.about-me__container_aling_start {
+  justify-content: flex-start;
+}
+
+.about-me__avatar {
+  width: 208px;
+  height: 208px;
+  border-radius: 50%;
+  margin: 0;
+  border: 1px solid skyblue;
+}
+
+.about-me__avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-me__title {
+  font-family: Aneliza;
+  font-size: 76px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: -3.5px;
+  margin: 40px 0 12px;
+}
+
+.about-me__subtitle {
+  font-family: Aneliza;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+}
+
+.about-me__info {
+  border: 1px solid fuchsia;
+  margin-top: 32px;
+}
+
+.about-me__info:first-of-type {
+  margin-top: 40px;
+  color: red;
+}
+
+.about-me__info:last-of-type {
+  margin-bottom: 40px;
+  color: aquamarine;
+}
+
+.about-me__text {
+  font-family: Fira Sans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  text-overflow: ellipsis;
+  max-width: 496px;
+}
+
+.about-me__button-contact {
+  margin: 40px 32px 0 0;
 }
