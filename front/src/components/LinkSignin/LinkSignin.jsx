@@ -7,7 +7,6 @@ export const LinkSignIn = props => {
     <Link
       className="link-signin"
       to={url}
-      target="_blank"
     >
       <img
         className="link-signin__logo"
